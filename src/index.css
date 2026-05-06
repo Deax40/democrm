@@ -1,0 +1,246 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* ─────────────────────────────────────────────
+   Base
+───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  @apply font-sans text-gray-800 bg-gray-50 dark:bg-gray-900 dark:text-gray-200;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─────────────────────────────────────────────
+   Scrollbar
+───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { @apply bg-transparent; }
+::-webkit-scrollbar-thumb { @apply bg-gray-300 dark:bg-gray-600 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-gray-400 dark:bg-gray-500; }
+
+/* ─────────────────────────────────────────────
+   Sidebar
+───────────────────────────────────────────── */
+.sidebar-nav-link {
+  @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium
+         text-sidebar-text transition-all duration-200 cursor-pointer select-none;
+}
+.sidebar-nav-link:hover {
+  @apply bg-sidebar-hover text-white;
+}
+.sidebar-nav-link.active {
+  @apply bg-primary-500 text-white shadow-lg;
+}
+.sidebar-section-title {
+  @apply text-[10px] font-semibold uppercase tracking-widest text-sidebar-heading px-3 mb-1 mt-5;
+}
+
+/* ─────────────────────────────────────────────
+   Cards
+───────────────────────────────────────────── */
+.card {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-card dark:shadow-card-dark border border-gray-100 dark:border-gray-700;
+}
+
+/* ─────────────────────────────────────────────
+   Badges
+───────────────────────────────────────────── */
+.badge {
+  @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold;
+}
+.badge-primary  { @apply bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300; }
+.badge-success  { @apply bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300; }
+.badge-warning  { @apply bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300; }
+.badge-danger   { @apply bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300; }
+.badge-info     { @apply bg-cyan-100 text-cyan-700 dark:bg-cyan-900/40 dark:text-cyan-300; }
+.badge-secondary{ @apply bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300; }
+.badge-purple   { @apply bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300; }
+
+/* ─────────────────────────────────────────────
+   Buttons
+───────────────────────────────────────────── */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium
+         transition-all duration-200 cursor-pointer select-none border-0 outline-none;
+}
+.btn:disabled { @apply opacity-50 cursor-not-allowed; }
+.btn-primary  { @apply bg-primary-500 hover:bg-primary-600 text-white shadow-sm; }
+.btn-secondary{ @apply bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200; }
+.btn-success  { @apply bg-green-500 hover:bg-green-600 text-white; }
+.btn-warning  { @apply bg-amber-500 hover:bg-amber-600 text-white; }
+.btn-danger   { @apply bg-red-500 hover:bg-red-600 text-white; }
+.btn-outline-primary { @apply border border-primary-500 text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/20; }
+.btn-sm  { @apply px-3 py-1.5 text-xs; }
+.btn-lg  { @apply px-6 py-3 text-base; }
+.btn-icon{ @apply w-9 h-9 p-0 rounded-lg; }
+
+/* ─────────────────────────────────────────────
+   Form inputs
+───────────────────────────────────────────── */
+.form-input {
+  @apply w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-600
+         bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200
+         text-sm placeholder-gray-400 dark:placeholder-gray-500
+         focus:outline-none focus:ring-2 focus:ring-primary-500/40 focus:border-primary-500
+         transition-colors duration-200;
+}
+.form-label {
+  @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+}
+.form-select {
+  @apply form-input pr-8 appearance-none cursor-pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239ca3af' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+/* ─────────────────────────────────────────────
+   Table
+───────────────────────────────────────────── */
+.data-table { @apply w-full text-sm; }
+.data-table thead tr { @apply border-b border-gray-100 dark:border-gray-700; }
+.data-table thead th {
+  @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider
+         text-gray-500 dark:text-gray-400 whitespace-nowrap;
+}
+.data-table tbody tr {
+  @apply border-b border-gray-50 dark:border-gray-700/50 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors;
+}
+.data-table tbody td { @apply px-4 py-3 text-gray-700 dark:text-gray-300; }
+
+/* ─────────────────────────────────────────────
+   Avatar
+───────────────────────────────────────────── */
+.avatar {
+  @apply inline-flex items-center justify-center rounded-full font-semibold text-white flex-shrink-0;
+}
+.avatar-xs  { @apply w-6 h-6 text-[10px]; }
+.avatar-sm  { @apply w-8 h-8 text-xs; }
+.avatar-md  { @apply w-10 h-10 text-sm; }
+.avatar-lg  { @apply w-12 h-12 text-base; }
+.avatar-xl  { @apply w-16 h-16 text-lg; }
+
+/* ─────────────────────────────────────────────
+   Stat card KPI
+───────────────────────────────────────────── */
+.kpi-card {
+  @apply card p-5 flex flex-col gap-3;
+}
+.kpi-icon {
+  @apply w-12 h-12 rounded-xl flex items-center justify-center;
+}
+
+/* ─────────────────────────────────────────────
+   Sidebar transition
+───────────────────────────────────────────── */
+.sidebar-wrapper {
+  @apply fixed top-0 left-0 h-full z-40 flex flex-col bg-sidebar-bg overflow-hidden transition-all duration-250;
+}
+
+/* ─────────────────────────────────────────────
+   Page header
+───────────────────────────────────────────── */
+.page-header {
+  @apply flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6;
+}
+.page-title {
+  @apply text-xl font-bold text-gray-900 dark:text-white;
+}
+
+/* ─────────────────────────────────────────────
+   Dropdown
+───────────────────────────────────────────── */
+.dropdown-menu {
+  @apply absolute z-50 mt-1 min-w-[180px] bg-white dark:bg-gray-800 rounded-xl
+         shadow-xl border border-gray-100 dark:border-gray-700 py-1 overflow-hidden;
+}
+.dropdown-item {
+  @apply flex items-center gap-2 px-4 py-2 text-sm text-gray-700 dark:text-gray-300
+         hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer;
+}
+
+/* ─────────────────────────────────────────────
+   Tab
+───────────────────────────────────────────── */
+.tab-list {
+  @apply flex gap-1 border-b border-gray-200 dark:border-gray-700 mb-5;
+}
+.tab-item {
+  @apply px-4 py-2.5 text-sm font-medium text-gray-500 dark:text-gray-400
+         cursor-pointer transition-colors border-b-2 border-transparent -mb-px;
+}
+.tab-item.active {
+  @apply text-primary-600 dark:text-primary-400 border-primary-500;
+}
+.tab-item:hover:not(.active) {
+  @apply text-gray-700 dark:text-gray-200;
+}
+
+/* ─────────────────────────────────────────────
+   Progress bar
+───────────────────────────────────────────── */
+.progress-bar {
+  @apply h-2 rounded-full bg-gray-100 dark:bg-gray-700 overflow-hidden;
+}
+.progress-fill {
+  @apply h-full rounded-full transition-all duration-500;
+}
+
+/* ─────────────────────────────────────────────
+   Timeline
+───────────────────────────────────────────── */
+.timeline-item {
+  @apply flex gap-3 relative;
+}
+.timeline-item::before {
+  content: '';
+  @apply absolute left-4 top-8 bottom-0 w-px bg-gray-100 dark:bg-gray-700;
+}
+.timeline-item:last-child::before { display: none; }
+
+/* ─────────────────────────────────────────────
+   Notification dot
+───────────────────────────────────────────── */
+.notif-dot {
+  @apply absolute -top-0.5 -right-0.5 w-2 h-2 bg-red-500 rounded-full;
+}
+
+/* ─────────────────────────────────────────────
+   Sidebar collapsed icon labels
+───────────────────────────────────────────── */
+.sidebar-collapsed .nav-label,
+.sidebar-collapsed .section-title,
+.sidebar-collapsed .chevron,
+.sidebar-collapsed .sidebar-logo-text { display: none; }
+
+.sidebar-collapsed .sidebar-nav-link { @apply justify-center px-2; }
+
+/* ─────────────────────────────────────────────
+   Auth pages
+───────────────────────────────────────────── */
+.auth-card {
+  @apply bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 w-full max-w-md;
+}
+
+/* ─────────────────────────────────────────────
+   Misc
+───────────────────────────────────────────── */
+.divider {
+  @apply border-t border-gray-100 dark:border-gray-700;
+}
+.text-muted {
+  @apply text-gray-500 dark:text-gray-400;
+}
+.section-title-sm {
+  @apply text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-3;
+}
+
+/* Apexcharts dark mode */
+.dark .apexcharts-text, .dark .apexcharts-legend-text { fill: #9ca3af !important; color: #9ca3af !important; }
+.dark .apexcharts-gridline { stroke: #374151 !important; }
+.dark .apexcharts-tooltip { background: #1f2937 !important; border-color: #374151 !important; color: #e5e7eb !important; }
